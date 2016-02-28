@@ -7,6 +7,9 @@
     <string name="scan">Scan/Add a Book</string>
     <string name="about">About this App</string>
 
+    <!-- Settings key -->
+    <string name="pref_start_key" translatable="false">pref_startFragment</string>
+
     <string name="navigation_drawer_open" >Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_settings">Settings</string>

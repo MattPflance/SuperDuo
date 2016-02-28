@@ -1,20 +1,17 @@
 Major:
 - Settings screen as no ActionBar/Toolbar. No backwards navigation.
-- Settings screen does not display currently selected start screen.
+- Settings and starting screen are no effective immediately upon fresh install.
 - Keyboard is always visible and doesn’t disappear when going back.
-- No way to submit an ISBN-13 number?
 - Scanning does not work, just pops open a Toast.
 - Rotating to landscape changes action bar text to Alexandria when it should be one of the menu options.
 - Scan/Add screen landscape layout is pretty bad and needs fixing.
 - Feedback for putting in an ISBN-13 number that does not exist is blocked by the keyboard (took me a long time to figure out how to add a book)
-- Cool icon.
 
 Performance:
 - Overdraw on pop-out menu is in the red.
 - Opening and closing the menu (tapping on the back button) causes memory to be allocated??
 - ****Stack of activities really uses up memory****
 	- There should be no stack because of the menu options. Each time a new activity is selected, all others should be destroyed.
-- Seeing garbage collection is cool.
 
 Minor:
 - No padding around About This App. Change text too perhaps.
@@ -25,4 +22,4 @@ Tablet:
 - Input looks bad on tablet in List and Scan.
 - This app is not optimized for tablet. Scan screen shoved to left side of screen when right side is not used for anything.
 - List screen shows empty display on right side when there are no books. Need to set empty views.
-- Deleting a book brings you to an unexpected screen.
+- Deleting a book brings you to an unexpected screen (Scan)
