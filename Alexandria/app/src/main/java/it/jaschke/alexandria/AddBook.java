@@ -78,12 +78,22 @@ public class AddBook extends Fragment implements LoaderManager.LoaderCallbacks<C
                     clearFields();
                     return;
                 }
-                //Once we have an ISBN, start a book intent
-                Intent bookIntent = new Intent(getActivity(), BookService.class);
-                bookIntent.putExtra(BookService.EAN, ean);
-                bookIntent.setAction(BookService.FETCH_BOOK);
-                getActivity().startService(bookIntent);
-                AddBook.this.restartLoader();
+
+                // First, check if we have internet
+                Context context = getContext();
+
+                if (Utility.isNetworkAvailable(context)) {
+                    //Once we have an ISBN and an internet connection, start a book intent
+                    Intent bookIntent = new Intent(getActivity(), BookService.class);
+                    bookIntent.putExtra(BookService.EAN, ean);
+                    bookIntent.setAction(BookService.FETCH_BOOK);
+                    getActivity().startService(bookIntent);
+                    AddBook.this.restartLoader();
+                } else {
+                    // Display a Toast to let the user know they need internet connection
+                    Toast toast = Toast.makeText(context, getString(R.string.no_internet), Toast.LENGTH_LONG);
+                    toast.show();
+                }
             }
         });
 

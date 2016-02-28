@@ -2,7 +2,7 @@ Major:
 DONE Settings screen as no ActionBar/Toolbar. No backwards navigation.
 DONE Settings screen does not display currently selected start screen.
 DONE Settings and starting screen are no effective immediately upon fresh install.
-- App crashes when adding a book offline.
+DONE App crashes when adding a book offline.
 - Drawer stays open even after closing it when you reopen the app on fresh install.
 - Keyboard is always visible and doesn’t disappear when going back.
 - Scanning does not work, just pops open a Toast.
