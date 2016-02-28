@@ -3,13 +3,14 @@ package it.jaschke.alexandria;
 import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.Preference;
-import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
+import android.util.Log;
+import android.view.MenuItem;
 
 /**
  * Created by saj on 27/01/15.
  */
-public class SettingsActivity extends PreferenceActivity implements Preference.OnPreferenceChangeListener {
+public class SettingsActivity extends AppCompatPreferenceActivity implements Preference.OnPreferenceChangeListener {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -25,6 +26,18 @@ public class SettingsActivity extends PreferenceActivity implements Preference.O
         // Set the summary to the label of the value
         preference.setSummary(getLabelFromPreference(preference, value.toString()));
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                // Just pop this activity off the stack
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     /**

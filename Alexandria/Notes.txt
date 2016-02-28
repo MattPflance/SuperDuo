@@ -1,6 +1,7 @@
 Major:
-- Settings screen as no ActionBar/Toolbar. No backwards navigation.
-- Settings and starting screen are no effective immediately upon fresh install.
+DONE Settings screen as no ActionBar/Toolbar. No backwards navigation.
+DONE Settings screen does not display currently selected start screen.
+DONE Settings and starting screen are no effective immediately upon fresh install.
 - Keyboard is always visible and doesn’t disappear when going back.
 - Scanning does not work, just pops open a Toast.
 - Rotating to landscape changes action bar text to Alexandria when it should be one of the menu options.
