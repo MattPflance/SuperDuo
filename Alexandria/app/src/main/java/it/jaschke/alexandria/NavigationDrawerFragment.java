@@ -71,12 +71,14 @@ public class NavigationDrawerFragment extends Fragment {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
         mUserLearnedDrawer = sp.getBoolean(PREF_USER_LEARNED_DRAWER, false);
 
-
+        Log.v("DRAWERFRAGMENT", "Hi just in onCreate here");
 
         if (savedInstanceState != null) {
+            Log.v("DRAWERFRAGMENT", "savedInstance not null");
             mCurrentSelectedPosition = savedInstanceState.getInt(STATE_SELECTED_POSITION);
             mFromSavedInstanceState = true;
-        }else{
+        } else{
+            Log.v("DRAWERFRAGMENT", "savedInstance is null");
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
             mCurrentSelectedPosition = Integer.parseInt(prefs.getString(getString(R.string.pref_start_key),"0"));
             selectItem(mCurrentSelectedPosition);

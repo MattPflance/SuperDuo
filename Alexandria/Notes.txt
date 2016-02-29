@@ -3,12 +3,12 @@ DONE Settings screen as no ActionBar/Toolbar. No backwards navigation.
 DONE Settings screen does not display currently selected start screen.
 DONE Settings and starting screen are no effective immediately upon fresh install.
 DONE App crashes when adding a book offline.
-- Drawer stays open even after closing it when you reopen the app on fresh install.
+DONE Drawer stays open even after closing it when you reopen the app on fresh install.
 DONE Keyboard is always visible and doesn’t disappear when going back.
 - Scanning does not work, just pops open a Toast.
 - Rotating to landscape changes action bar text to Alexandria when it should be one of the menu options.
 - Scan/Add screen landscape layout is pretty bad and needs fixing.
-- Feedback for putting in an ISBN-13 number that does not exist is blocked by the keyboard (took me a long time to figure out how to add a book)
+DONE Feedback for putting in an ISBN-13 number that does not exist is blocked by the keyboard (took me a long time to figure out how to add a book)
 
 Performance:
 - Overdraw on pop-out menu is in the red.
