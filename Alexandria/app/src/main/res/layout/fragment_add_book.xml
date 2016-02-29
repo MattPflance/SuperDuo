@@ -1,6 +1,8 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" tools:context="it.jaschke.alexandria.AddBook">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="it.jaschke.alexandria.AddBook">
 
     <RelativeLayout
         android:orientation="horizontal"
@@ -32,6 +34,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:focusable="false"
                 android:text="@string/scan_button"
                 android:id="@+id/scan_button"/>
 
@@ -41,6 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/bookTitle"
+            android:focusable="false"
             android:textSize="@dimen/head_line"
             android:textIsSelectable="true"
             android:textStyle="bold"
@@ -54,6 +58,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/bookSubTitle"
+            android:focusable="false"
             android:layout_marginTop="10dp"
             android:layout_below="@+id/bookTitle"
             android:maxLines="3"
@@ -65,6 +70,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/authors"
+            android:focusable="false"
             android:gravity="end"
             android:textSize="@dimen/small_fontsize"
             android:layout_marginTop="20dp"
@@ -77,6 +83,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/bookCover"
+            android:focusable="false"
             android:contentDescription="@string/book_cover"
             android:layout_alignTop="@+id/authors"
             android:layout_alignLeft="@+id/eancontainer"
@@ -86,6 +93,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/categories"
+            android:focusable="false"
             android:textSize="@dimen/small_fontsize"
             android:layout_below="@+id/bookCover"
             android:layout_marginTop="20dp"
@@ -103,6 +111,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
+                android:focusable="false"
                 android:text="@string/cancel_button"
                 android:layout_weight="1"
                 style="?android:attr/buttonBarButtonStyle"
@@ -114,6 +123,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
+                android:focusable="false"
                 android:text="@string/ok_button"
                 android:visibility="invisible"
                 android:layout_weight="1"

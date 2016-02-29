@@ -11,8 +11,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerF
             setContentView(R.layout.activity_main);
         }
 
-        messageReciever = new MessageReciever();
+        messageReciever = new MessageReceiver();
         IntentFilter filter = new IntentFilter(MESSAGE_EVENT);
         LocalBroadcastManager.getInstance(this).registerReceiver(messageReciever,filter);
 
@@ -57,8 +57,7 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerF
         title = getTitle();
 
         // Set up the drawer.
-        navigationDrawerFragment.setUp(R.id.navigation_drawer,
-                    (DrawerLayout) findViewById(R.id.drawer_layout));
+        navigationDrawerFragment.setUp(R.id.navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout));
     }
 
     @Override
@@ -123,6 +122,10 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerF
             startActivity(new Intent(this, SettingsActivity.class));
             return true;
         }
+        if (id == android.R.id.home) {
+            // Hide the keyboard when pressing back
+            Utility.hideSoftKeyboard(this);
+        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -147,12 +150,12 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerF
         }
         getSupportFragmentManager().beginTransaction()
                 .replace(id, fragment)
-                .addToBackStack("Book Detail")
+                .addToBackStack(getString(R.string.detail))
                 .commit();
 
     }
 
-    private class MessageReciever extends BroadcastReceiver {
+    private class MessageReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
             if(intent.getStringExtra(MESSAGE_KEY)!=null){
@@ -178,6 +181,5 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerF
         }
         super.onBackPressed();
     }
-
 
 }

@@ -3,14 +3,18 @@ package it.jaschke.alexandria;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.text.Editable;
+import android.text.InputType;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.util.Patterns;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -69,14 +73,22 @@ public class AddBook extends Fragment implements LoaderManager.LoaderCallbacks<C
 
             @Override
             public void afterTextChanged(Editable s) {
-                String ean =s.toString();
+                String ean = s.toString();
+                int length = ean.length();
+
                 //catch isbn10 numbers
-                if(ean.length()==10 && !ean.startsWith("978")){
+                if(length == 10 && !ean.startsWith("978")){
                     ean="978"+ean;
                 }
-                if(ean.length()<13){
+
+                if(length < 13){
                     clearFields();
                     return;
+                } else {
+                    // The user has typed the max amount of digits if we make it here
+                    // Let's hide the keyboard immediately
+                    Log.v("HIDE KEYBOARD STATE", "HIDE IT HIDE IT!");
+                    Utility.hideSoftKeyboard((Activity) rootView.getContext());
                 }
 
                 // First, check if we have internet
@@ -151,7 +163,7 @@ public class AddBook extends Fragment implements LoaderManager.LoaderCallbacks<C
         if(ean.getText().length()==0){
             return null;
         }
-        String eanStr= ean.getText().toString();
+        String eanStr = ean.getText().toString();
         if(eanStr.length()==10 && !eanStr.startsWith("978")){
             eanStr="978"+eanStr;
         }
@@ -214,4 +226,5 @@ public class AddBook extends Fragment implements LoaderManager.LoaderCallbacks<C
         super.onAttach(activity);
         activity.setTitle(R.string.scan);
     }
+
 }

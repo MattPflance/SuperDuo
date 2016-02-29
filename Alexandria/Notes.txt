@@ -4,7 +4,7 @@ DONE Settings screen does not display currently selected start screen.
 DONE Settings and starting screen are no effective immediately upon fresh install.
 DONE App crashes when adding a book offline.
 - Drawer stays open even after closing it when you reopen the app on fresh install.
-- Keyboard is always visible and doesn’t disappear when going back.
+DONE Keyboard is always visible and doesn’t disappear when going back.
 - Scanning does not work, just pops open a Toast.
 - Rotating to landscape changes action bar text to Alexandria when it should be one of the menu options.
 - Scan/Add screen landscape layout is pretty bad and needs fixing.

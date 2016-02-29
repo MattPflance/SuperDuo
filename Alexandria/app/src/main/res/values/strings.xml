@@ -6,6 +6,8 @@
     <string name="books">List of Books</string>
     <string name="scan">Scan/Add a Book</string>
     <string name="about">About this App</string>
+    <string name="detail">Book Details</string>
+
 
     <!-- Settings key -->
     <string name="pref_start_key" translatable="false">pref_startFragment</string>
