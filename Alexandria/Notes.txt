@@ -5,7 +5,7 @@ DONE Settings and starting screen are no effective immediately upon fresh instal
 DONE App crashes when adding a book offline.
 DONE Drawer stays open even after closing it when you reopen the app on fresh install.
 DONE Keyboard is always visible and doesn’t disappear when going back.
-- Scanning does not work, just pops open a Toast.
+DONE Scanning does not work, just pops open a Toast. Scanning now works using Google’s Vision API and handles offline cases.
 - Rotating to landscape changes action bar text to Alexandria when it should be one of the menu options.
 - Scan/Add screen landscape layout is pretty bad and needs fixing.
 DONE Feedback for putting in an ISBN-13 number that does not exist is blocked by the keyboard (took me a long time to figure out how to add a book)

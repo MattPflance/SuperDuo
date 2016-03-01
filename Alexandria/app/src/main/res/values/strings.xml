@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:xliff="http://schemas.android.com/tools">
     <string name="app_name">Alexandria</string>
 
     <!-- Menu Items -->
@@ -8,6 +8,11 @@
     <string name="about">About this App</string>
     <string name="detail">Book Details</string>
 
+    <!-- Camera Help -->
+    <string name="barcode_down">Barcode detector is currently unavailable</string>
+    <string name="no_barcodes">No barcodes were found</string>
+    <string name="barcode_error">Barcode Error. Not very informative, sorry.</string>
+    <string name="camera_help">Tap anywhere to capture the barcode</string>
 
     <!-- Settings key -->
     <string name="pref_start_key" translatable="false">pref_startFragment</string>
