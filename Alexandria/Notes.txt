@@ -10,4 +10,4 @@ DONE Scan/Add screen landscape layout is pretty bad and needs fixing.
 DONE Feedback for putting in an ISBN-13 number that does not exist is blocked by the keyboard (took me a long time to figure out how to add a book)
 DONE Back stack needed
 DONE CRASH when rotating on book detail screen
-- (Last thing to do) Deletion should update books list upon return
+DONE (Last thing to do) Deletion should update books list upon return
