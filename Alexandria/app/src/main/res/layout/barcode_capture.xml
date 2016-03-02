@@ -4,14 +4,14 @@
     android:layout_height="match_parent"
     android:keepScreenOn="true">
 
-    <LinearLayout
+    <FrameLayout
         android:id="@+id/topLayout"
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <it.jaschke.alexandria.CameraPreview.CameraPreview
             android:id="@+id/camera_preview"
+            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -22,7 +22,7 @@
 
         </it.jaschke.alexandria.CameraPreview.CameraPreview>
 
-    </LinearLayout>
+    </FrameLayout>
 
     <TextView
         android:textSize="20sp"

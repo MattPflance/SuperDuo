@@ -1,4 +1,3 @@
-Major:
 DONE Settings screen as no ActionBar/Toolbar. No backwards navigation.
 DONE Settings screen does not display currently selected start screen.
 DONE Settings and starting screen are no effective immediately upon fresh install.
@@ -6,23 +5,8 @@ DONE App crashes when adding a book offline.
 DONE Drawer stays open even after closing it when you reopen the app on fresh install.
 DONE Keyboard is always visible and doesn’t disappear when going back.
 DONE Scanning does not work, just pops open a Toast. Scanning now works using Google’s Vision API and handles offline cases.
-- Rotating to landscape changes action bar text to Alexandria when it should be one of the menu options.
-- Scan/Add screen landscape layout is pretty bad and needs fixing.
+DONE Rotating to landscape changes action bar text to Alexandria when it should be one of the menu options.
+DONE Scan/Add screen landscape layout is pretty bad and needs fixing.
 DONE Feedback for putting in an ISBN-13 number that does not exist is blocked by the keyboard (took me a long time to figure out how to add a book)
-
-Performance:
-- Overdraw on pop-out menu is in the red.
-- Opening and closing the menu (tapping on the back button) causes memory to be allocated??
-- ****Stack of activities really uses up memory****
-	- There should be no stack because of the menu options. Each time a new activity is selected, all others should be destroyed.
-
-Minor:
-- No padding around About This App. Change text too perhaps.
-- Sharing text is somewhat bland.
-
-Tablet:
-- Seems like About This App had some fixed width and looks bad on tablet.
-- Input looks bad on tablet in List and Scan.
-- This app is not optimized for tablet. Scan screen shoved to left side of screen when right side is not used for anything.
-- List screen shows empty display on right side when there are no books. Need to set empty views.
-- Deleting a book brings you to an unexpected screen (Scan)
+DONE Back stack needed
+- CRASH when rotating on book detail screen

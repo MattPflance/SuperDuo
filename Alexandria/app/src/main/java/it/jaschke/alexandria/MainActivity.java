@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerF
 
         navigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
+
         title = navigationDrawerFragment.getTitle();
 
         // Set up the drawer.
@@ -181,6 +182,9 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerF
             finish();
         }
         super.onBackPressed();
+
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) actionBar.setTitle(getTitle());
     }
 
 }
