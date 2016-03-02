@@ -54,10 +54,11 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerF
 
         navigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
-        title = getTitle();
+        title = navigationDrawerFragment.getTitle();
 
         // Set up the drawer.
         navigationDrawerFragment.setUp(R.id.navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout));
+
     }
 
     @Override
