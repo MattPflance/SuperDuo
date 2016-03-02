@@ -9,4 +9,5 @@ DONE Rotating to landscape changes action bar text to Alexandria when it should 
 DONE Scan/Add screen landscape layout is pretty bad and needs fixing.
 DONE Feedback for putting in an ISBN-13 number that does not exist is blocked by the keyboard (took me a long time to figure out how to add a book)
 DONE Back stack needed
-- CRASH when rotating on book detail screen
+DONE CRASH when rotating on book detail screen
+- (Last thing to do) Deletion should update books list upon return
