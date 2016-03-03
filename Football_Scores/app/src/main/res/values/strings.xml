@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:xliff="http://schemas.android.com/tools">
+
+    <string name="home_crest_description">Home team\'s crest image</string>
+    <string name="away_crest_description">Away team\'s crest image</string>
 
     <string name="app_name">Football Scores</string>
     <string name="action_settings">Settings</string>
