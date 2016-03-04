@@ -164,6 +164,10 @@ public class Utilies
             case "SS Lazio" : return R.drawable.ss_lazio;
             case "US Sassuolo Calcio" : return R.drawable.us_sassuolo_calcio;
             case "SSC Napoli" : return R.drawable.ssc_napoli;
+            case "AC Chievo Verona" : return R.drawable.ac_chievo_verona;
+            case "Hellas Verona FC" : return R.drawable.hellas_verona_fc;
+            case "UC Sampdoria" : return R.drawable.uc_sampdoria;
+
 
             default: return R.drawable.no_icon;
         }
