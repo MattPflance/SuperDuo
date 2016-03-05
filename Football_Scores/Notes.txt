@@ -1,6 +1,6 @@
 DONE Lots of missing icons that we have, but aren’t accounted for
 DONE Find other missing icons (to an extent) -> I did almost all of them (if not all)
-- Needs a widget displaying scores of 1-3 most recent games
+DONE Needs a widget displaying score of first game (Could show recent game based on time)
 - Maybe a collection widget
 DONE All layouts must support RTL - Seemed like there was not much to do for this one
 DONE All icons/buttons must have content descriptions

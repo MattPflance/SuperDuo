@@ -33,6 +33,18 @@
         <provider
             android:name=".ScoresProvider"
             android:authorities="barqsoft.footballscores" />
+        <!-- Simple Widget -->
+        <receiver
+            android:name=".widget.SimpleWidgetProvider"
+            android:label="@string/title_widget_simple" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="barqsoft.footballscores.ACTION_DATA_UPDATED" />
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider"
+                android:resource="@xml/widget_info_simple" />
+        </receiver>
+        <service android:name=".widget.SimpleWidgetIntentService" />
     </application>
 
 </manifest>
