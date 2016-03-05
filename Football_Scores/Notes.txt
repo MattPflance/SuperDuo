@@ -5,4 +5,4 @@ DONE Find other missing icons (to an extent) -> I did almost all of them (if not
 DONE All layouts must support RTL - Seemed like there was not much to do for this one
 DONE All icons/buttons must have content descriptions
 DONE Look into “Not known League Please report” text on EVERY game
-- Maybe add an empty list layout
+DONE Maybe add an empty list layout
