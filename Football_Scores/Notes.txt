@@ -2,7 +2,7 @@ DONE Lots of missing icons that we have, but aren’t accounted for
 DONE Find other missing icons (to an extent) -> I did almost all of them (if not all)
 - Needs a widget displaying scores of 1-3 most recent games
 - Maybe a collection widget
-- All layouts must support RTL
+DONE All layouts must support RTL - Seemed like there was not much to do for this one
 ~~ All icons/buttons must have content descriptions
 - Look into “Not known League Please report” text on EVERY game
 - Maybe add an empty list layout
