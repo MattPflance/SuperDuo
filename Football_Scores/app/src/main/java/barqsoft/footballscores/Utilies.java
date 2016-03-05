@@ -167,6 +167,18 @@ public class Utilies
             case "AC Chievo Verona" : return R.drawable.ac_chievo_verona;
             case "Hellas Verona FC" : return R.drawable.hellas_verona_fc;
             case "UC Sampdoria" : return R.drawable.uc_sampdoria;
+            case "Torino FC" : return R.drawable.torino_fc;
+            case "Bologna FC" : return R.drawable.bologna_fc;
+            case "Carpi FC" : return R.drawable.carpi_fc;
+            case "Atalanta BC" : return R.drawable.atalanta_bc;
+            case "Juventus Turin" : return R.drawable.juventus_turin;
+            case "Frosinone Calcio" : return R.drawable.frosinone_calcio;
+            case "Udinese Calcio" : return R.drawable.udinese_calcio;
+            case "Genoa CFC" : return R.drawable.genoa_cfc;
+            case "Empoli FC" : return R.drawable.empoli_fc;
+            case "AC Milan" : return R.drawable.ac_milan;
+            case "FC Internazionale Milano" : return R.drawable.fc_internazionale_milano;
+            case "US Citta di Palermo" : return R.drawable.us_citta_di_palermo;
 
 
             default: return R.drawable.no_icon;
