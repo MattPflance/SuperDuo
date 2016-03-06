@@ -29,8 +29,7 @@ public class ListOfBooks extends Fragment implements LoaderManager.LoaderCallbac
 
     private final int LOADER_ID = 10;
 
-    public ListOfBooks() {
-    }
+    public ListOfBooks() {}
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

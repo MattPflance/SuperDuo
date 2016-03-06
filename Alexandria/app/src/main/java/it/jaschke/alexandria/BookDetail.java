@@ -26,15 +26,15 @@ import it.jaschke.alexandria.services.DownloadImage;
 public class BookDetail extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
 
     public static final String EAN_KEY = "EAN";
-    public static final String SHARE_KEY = "SHARE";
+    public static final String SHARE_TYPE = "text/plain";
     private final int LOADER_ID = 10;
+
     private View rootView;
     private String ean;
     private String bookTitle;
     private ShareActionProvider shareActionProvider;
 
-    public BookDetail(){
-    }
+    public BookDetail(){}
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -99,8 +99,8 @@ public class BookDetail extends Fragment implements LoaderManager.LoaderCallback
         if (shareActionProvider != null) {
             Intent shareIntent = new Intent(Intent.ACTION_SEND);
             shareIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_DOCUMENT);
-            shareIntent.setType("text/plain");
-            shareIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.share_text) + bookTitle);
+            shareIntent.setType(SHARE_TYPE);
+            shareIntent.putExtra(Intent.EXTRA_TEXT, String.format(getString(R.string.share_text), bookTitle));
             shareActionProvider.setShareIntent(shareIntent);
         }
 
@@ -130,9 +130,7 @@ public class BookDetail extends Fragment implements LoaderManager.LoaderCallback
     }
 
     @Override
-    public void onLoaderReset(android.support.v4.content.Loader<Cursor> loader) {
-
-    }
+    public void onLoaderReset(android.support.v4.content.Loader<Cursor> loader) {}
 
     @Override
     public void onPause() {

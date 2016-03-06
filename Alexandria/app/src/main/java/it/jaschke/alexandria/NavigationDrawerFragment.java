@@ -81,7 +81,6 @@ public class NavigationDrawerFragment extends Fragment {
             mCurrentSelectedPosition = savedInstanceState.getInt(STATE_SELECTED_POSITION);
             mFromSavedInstanceState = true;
         } else{
-            Log.v("DRAWERFRAGMENT", "savedInstance is null");
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
             mCurrentSelectedPosition = Integer.parseInt(prefs.getString(getString(R.string.pref_start_key),"0"));
             selectItem(mCurrentSelectedPosition);
@@ -94,7 +93,6 @@ public class NavigationDrawerFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         // Indicate that this fragment would like to influence the set of actions in the action bar.
         setHasOptionsMenu(true);
-        getActionBar().setTitle("BAH");
     }
 
     @Override
@@ -214,7 +212,7 @@ public class NavigationDrawerFragment extends Fragment {
         try {
             mCallbacks = (NavigationDrawerCallbacks) activity;
         } catch (ClassCastException e) {
-            throw new ClassCastException("Activity must implement NavigationDrawerCallbacks.");
+            throw new ClassCastException(getString(R.string.nav_callback_error));
         }
     }
 

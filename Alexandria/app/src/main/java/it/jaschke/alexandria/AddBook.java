@@ -1,26 +1,16 @@
 package it.jaschke.alexandria;
 
-import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Environment;
-import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.util.Patterns;
-import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,18 +20,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.common.api.CommonStatusCodes;
-import com.google.android.gms.vision.Detector;
-import com.google.android.gms.vision.Frame;
 import com.google.android.gms.vision.barcode.Barcode;
-import com.google.android.gms.vision.barcode.BarcodeDetector;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
-import it.jaschke.alexandria.CameraPreview.CameraPreview;
 import it.jaschke.alexandria.data.AlexandriaContract;
 import it.jaschke.alexandria.services.BookService;
 import it.jaschke.alexandria.services.DownloadImage;
@@ -57,8 +37,7 @@ public class AddBook extends Fragment implements LoaderManager.LoaderCallbacks<C
     private View rootView;
     private final String EAN_CONTENT = "eanContent";
 
-    public AddBook() {
-    }
+    public AddBook() {}
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
@@ -125,9 +104,7 @@ public class AddBook extends Fragment implements LoaderManager.LoaderCallbacks<C
         rootView.findViewById(R.id.scan_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 smileForTheCamera();
-
             }
         });
 
@@ -210,9 +187,7 @@ public class AddBook extends Fragment implements LoaderManager.LoaderCallbacks<C
     }
 
     @Override
-    public void onLoaderReset(android.support.v4.content.Loader<Cursor> loader) {
-
-    }
+    public void onLoaderReset(android.support.v4.content.Loader<Cursor> loader) {}
 
     private void clearFields() {
         ((TextView) rootView.findViewById(R.id.bookTitle)).setText("");
@@ -237,10 +212,10 @@ public class AddBook extends Fragment implements LoaderManager.LoaderCallbacks<C
                 if (data != null) {
                     Barcode barcode = data.getParcelableExtra(BarcodeReaderActivity.BarcodeObject);
                     ean.setText(barcode.displayValue);
-                    Log.d(TAG, "Barcode read: " + barcode.displayValue);
+                    //Log.d(TAG, "Barcode read: " + barcode.displayValue);
                 } else {
                     Toast.makeText(getContext(), getString(R.string.no_barcodes), Toast.LENGTH_LONG).show();
-                    Log.d(TAG, "No barcode captured, intent data is null");
+                    //Log.d(TAG, "No barcode captured, intent data is null");
                 }
             } else {
                 Toast.makeText(getContext(), getString(R.string.barcode_error), Toast.LENGTH_LONG).show();
