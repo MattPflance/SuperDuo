@@ -4,12 +4,11 @@ package barqsoft.footballscores;
  * Created by yehya khaled on 3/3/2015.
  */
 
-import android.util.Log;
+import android.content.Context;
 
 import java.text.Normalizer;
 
-public class Utilies
-{
+public class Utilies {
 
     /*******
      * Based on the API, representing leagues like this is BAD!!
@@ -30,70 +29,56 @@ public class Utilies
     public static final int EREDIVISIE = 404;
     public static final int CHAMPIONS_LEAGUE = 405;
 
-    public static String getLeague(int league_num)
-    {
-        switch (league_num)
-        {
-            case BUNDESLIGA1 : return "Bundesliga";
-            case BUNDESLIGA2 : return "2. Bundesliga";
-            case BUNDESLIGA3 : return "3. Bundesliga";
-            case LIGUE1 : return "Ligue 1";
-            case LIGUE2 : return "Ligue 2";
-            case PREMIER_LEAGUE : return "Premier League";
-            case PRIMERA_DIVISION : return "Primera Division";
-            case SEGUNDA_DIVISION : return "Segunda Division";
-            case SERIE_A : return "Seria A";
-            case PRIMERA_LIGA : return  "Primeira Liga";
-            case EREDIVISIE : return "Erediviste";
-            case CHAMPIONS_LEAGUE : return "UEFA Champions League";
-            default: return "Not known League Please report";
-        }
-    }
-    public static String getMatchDay(int match_day,int league_num)
-    {
-        if(league_num == CHAMPIONS_LEAGUE)
-        {
-            if (match_day <= 6)
-            {
-                return "Group Stages, Matchday : 6";
-            }
-            else if(match_day == 7 || match_day == 8)
-            {
-                return "First Knockout round";
-            }
-            else if(match_day == 9 || match_day == 10)
-            {
-                return "QuarterFinal";
-            }
-            else if(match_day == 11 || match_day == 12)
-            {
-                return "SemiFinal";
-            }
-            else
-            {
-                return "Final";
-            }
-        }
-        else
-        {
-            return "Matchday : " + String.valueOf(match_day);
+    public static String getLeague(int league_num, Context context) {
+
+        switch (league_num) {
+
+            case BUNDESLIGA1 : return context.getString(R.string.bund_1);
+            case BUNDESLIGA2 : return context.getString(R.string.bund_2);
+            case BUNDESLIGA3 : return context.getString(R.string.bund_3);
+            case LIGUE1 : return context.getString(R.string.ligue_1);
+            case LIGUE2 : return context.getString(R.string.ligue_2);
+            case PREMIER_LEAGUE : return context.getString(R.string.premier_league);
+            case PRIMERA_DIVISION : return context.getString(R.string.primera_divison);
+            case SEGUNDA_DIVISION : return context.getString(R.string.segunda_divison);
+            case SERIE_A : return context.getString(R.string.seria_a);
+            case PRIMERA_LIGA : return  context.getString(R.string.primera_liga);
+            case EREDIVISIE : return context.getString(R.string.eredivisie);
+            case CHAMPIONS_LEAGUE : return context.getString(R.string.champions_league);
+            default: return context.getString(R.string.unknown_league);
+
         }
     }
 
-    public static String getScores(int home_goals,int awaygoals)
-    {
-        if(home_goals < 0 || awaygoals < 0)
-        {
-            return " - ";
+    public static String getMatchDay(int match_day,int league_num, Context context) {
+
+        if(league_num == CHAMPIONS_LEAGUE) {
+            if (match_day <= 6) {
+                return context.getString(R.string.group_stage_text);
+            } else if(match_day == 7 || match_day == 8) {
+                return context.getString(R.string.first_knockout_round);
+            } else if(match_day == 9 || match_day == 10) {
+                return context.getString(R.string.quarter_final);
+            } else if(match_day == 11 || match_day == 12) {
+                return context.getString(R.string.semi_final);
+            } else {
+                return context.getString(R.string.final_text);
+            }
+        } else {
+            return String.format(context.getString(R.string.matchday_text), String.valueOf(match_day));
         }
-        else
-        {
+    }
+
+    public static String getScores(int home_goals,int awaygoals) {
+        if(home_goals < 0 || awaygoals < 0) {
+            return " - ";
+        } else {
             return String.valueOf(home_goals) + " - " + String.valueOf(awaygoals);
         }
     }
 
-    public static int getTeamCrestByTeamName (String teamname)
-    {
+    public static int getTeamCrestByTeamName (String teamname) {
+
         if (teamname==null){return R.drawable.no_icon;}
 
         // Normalize accents in string
@@ -101,9 +86,10 @@ public class Utilies
                 .normalize(teamname, Normalizer.Form.NFD) // Separate the accents
                 .replaceAll("[^\\p{ASCII}]", "");         // Remove accents
 
-        switch (teamname)
-        { //This is the set of icons that are currently in the app. Feel free to find and add more
-            //as you go..... man that was tedious..
+        switch (teamname) {
+            // This is the set of icons that are currently in the app. Feel free to find and add more
+            // as you go..... man that was tedious..
+
             case "ACF Fiorentina" : return R.drawable.acf_fiorentina;
             case "AFC Bournemouth" : return R.drawable.afc_bournemouth;
             case "Arsenal FC" : return R.drawable.arsenal;
@@ -203,7 +189,6 @@ public class Utilies
             case "AC Milan" : return R.drawable.ac_milan;
             case "FC Internazionale Milano" : return R.drawable.fc_internazionale_milano;
             case "US Citta di Palermo" : return R.drawable.us_citta_di_palermo;
-
 
             default: return R.drawable.no_icon;
         }

@@ -28,6 +28,8 @@ import barqsoft.footballscores.MainActivity;
  */
 public class SimpleWidgetIntentService extends IntentService {
 
+    private static final String TAG = SimpleWidgetIntentService.class.getSimpleName();
+
     private static final String[] FOOTBALL_COLUMNS = {
             DatabaseContract.scores_table.HOME_COL,
             DatabaseContract.scores_table.AWAY_COL,
@@ -48,7 +50,7 @@ public class SimpleWidgetIntentService extends IntentService {
     private static final int INDEX_MATCH_DAY = 6;
 
     public SimpleWidgetIntentService() {
-        super("SimpleWidgetIntentService");
+        super(TAG);
     }
 
     @Override
@@ -109,8 +111,8 @@ public class SimpleWidgetIntentService extends IntentService {
             views.setTextViewText(R.id.widget_time_textview, time);
             views.setTextViewText(R.id.widget_home_name, homeName);
             views.setTextViewText(R.id.widget_away_name, awayName);
-            views.setTextViewText(R.id.widget_league, Utilies.getLeague(leagueNum));
-            views.setTextViewText(R.id.widget_match_day, "Matchday: " + match_day);
+            views.setTextViewText(R.id.widget_league, Utilies.getLeague(leagueNum, getApplicationContext()));
+            views.setTextViewText(R.id.widget_match_day, Utilies.getMatchDay(match_day, leagueNum, getApplicationContext()));
 
             // Create an Intent to launch MainActivity
             Intent launchIntent = new Intent(this, MainActivity.class);

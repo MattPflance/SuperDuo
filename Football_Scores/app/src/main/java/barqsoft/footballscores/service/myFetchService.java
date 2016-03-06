@@ -28,8 +28,7 @@ import barqsoft.footballscores.R;
 /**
  * Created by yehya khaled on 3/2/2015.
  */
-public class myFetchService extends IntentService
-{
+public class myFetchService extends IntentService {
     public static final String LOG_TAG = "myFetchService";
     public myFetchService()
     {
@@ -37,16 +36,14 @@ public class myFetchService extends IntentService
     }
 
     @Override
-    protected void onHandleIntent(Intent intent)
-    {
+    protected void onHandleIntent(Intent intent) {
         getData("n2");
         getData("p2");
 
         return;
     }
 
-    private void getData (String timeFrame)
-    {
+    private void getData (String timeFrame) {
         //Creating fetch URL
         final String BASE_URL = "http://api.football-data.org/v1/fixtures"; //Base URL
         final String QUERY_TIME_FRAME = "timeFrame"; //Time Frame parameter to determine days
@@ -88,23 +85,20 @@ public class myFetchService extends IntentService
             }
             JSON_data = buffer.toString();
         }
-        catch (Exception e)
-        {
+        catch (Exception e) {
             Log.e(LOG_TAG,"Exception here" + e.getMessage());
         }
         finally {
-            if(m_connection != null)
-            {
+            if(m_connection != null) {
                 m_connection.disconnect();
             }
-            if (reader != null)
-            {
+            if (reader != null) {
                 try {
                     reader.close();
                 }
                 catch (IOException e)
                 {
-                    Log.e(LOG_TAG,"Error Closing Stream");
+                    Log.e(LOG_TAG, "Error Closing Stream");
                 }
             }
         }
@@ -123,7 +117,7 @@ public class myFetchService extends IntentService
                 processJSONdata(JSON_data, getApplicationContext(), true);
             } else {
                 //Could not Connect
-                Log.d(LOG_TAG, "Could not connect to server.");
+                Log.d(LOG_TAG, getString(R.string.server_down));
             }
         }
         catch(Exception e)
@@ -131,9 +125,9 @@ public class myFetchService extends IntentService
             Log.e(LOG_TAG,e.getMessage());
         }
     }
-    private void processJSONdata (String JSONdata,Context mContext, boolean isReal)
-    {
-        //JSON data
+    private void processJSONdata (String JSONdata,Context mContext, boolean isReal) {
+
+        // JSON data
         // This set of league codes is for the 2015/2016 season. In fall of 2016, they will need to
         // be updated. Feel free to use the codes
         final String BUNDESLIGA1 = "394";
@@ -185,8 +179,7 @@ public class myFetchService extends IntentService
             {
 
                 JSONObject match_data = matches.getJSONObject(i);
-                League = match_data.getJSONObject(LINKS).getJSONObject(SOCCER_SEASON).
-                        getString("href");
+                League = match_data.getJSONObject(LINKS).getJSONObject(SOCCER_SEASON).getString("href");
                 League = League.replace(SEASON_LINK,"");
                 //This if statement controls which leagues we're interested in the data from.
                 //add leagues here in order to have them be added to the DB.
@@ -199,8 +192,7 @@ public class myFetchService extends IntentService
                         League.equals(BUNDESLIGA2)         ||
                         League.equals(PRIMERA_DIVISION)     )
                 {
-                    match_id = match_data.getJSONObject(LINKS).getJSONObject(SELF).
-                            getString("href");
+                    match_id = match_data.getJSONObject(LINKS).getJSONObject(SELF).getString("href");
                     match_id = match_id.replace(MATCH_LINK, "");
                     if(!isReal){
                         //This if statement changes the match ID of the dummy data so that it all goes into the database
@@ -227,10 +219,8 @@ public class myFetchService extends IntentService
                             mDate=mformat.format(fragmentdate);
                         }
                     }
-                    catch (Exception e)
-                    {
-                        Log.d(LOG_TAG, "error here!");
-                        Log.e(LOG_TAG,e.getMessage());
+                    catch (Exception e) {
+                        Log.e(LOG_TAG, e.getMessage());
                     }
 
                     Home = match_data.getString(HOME_TEAM);
@@ -249,6 +239,7 @@ public class myFetchService extends IntentService
                     match_values.put(DatabaseContract.scores_table.AWAY_GOALS_COL,Away_goals);
                     match_values.put(DatabaseContract.scores_table.LEAGUE_COL,League);
                     match_values.put(DatabaseContract.scores_table.MATCH_DAY,match_day);
+
                     //log spam
 
                     //Log.v(LOG_TAG,match_id);
@@ -264,13 +255,9 @@ public class myFetchService extends IntentService
             }
             ContentValues[] insert_data = new ContentValues[values.size()];
             values.toArray(insert_data);
-            int inserted_data = mContext.getContentResolver().bulkInsert(
-                    DatabaseContract.BASE_CONTENT_URI,insert_data);
 
-            //Log.v(LOG_TAG,"Successfully Inserted : " + String.valueOf(inserted_data));
         }
-        catch (JSONException e)
-        {
+        catch (JSONException e) {
             Log.e(LOG_TAG,e.getMessage());
         }
 
