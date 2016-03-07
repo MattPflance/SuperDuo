@@ -43,4 +43,11 @@
     <string name="no_internet">No Internet Connection! Connect to add a book</string>
     <string name="nav_callback_error">Activity must implement NavigationDrawerCallbacks.</string>
 
+    <!-- Empty Strings -->
+    <string name="no_book_title">Book title not available.</string>
+    <string name="no_book_author">Author data not available.</string>
+    <string name="no_book_subtitle">There is no subtitle for this book.</string>
+    <string name="no_categories">Category data not available.</string>
+    <string name="no_description">No book description available.</string>
+
 </resources>
