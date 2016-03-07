@@ -122,6 +122,8 @@ public class SimpleWidgetIntentService extends IntentService {
             // Tell the AppWidgetManager to perform an update on the current app widget
             appWidgetManager.updateAppWidget(appWidgetId, views);
         }
+        // close cursor
+        data.close();
     }
 
     private int getWidgetWidth(AppWidgetManager appWidgetManager, int appWidgetId) {

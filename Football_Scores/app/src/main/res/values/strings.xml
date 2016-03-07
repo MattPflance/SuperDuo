@@ -4,7 +4,7 @@
     <string name="home_crest_description">Home team\'s crest</string>
     <string name="away_crest_description">Away team\'s crest</string>
 
-    <string name="empty_scores">There is no data available for this day yet. Please try again later.</string>
+    <string name="empty_scores">There are no games today.</string>
 
     <string name="app_name">Football Scores</string>
     <string name="action_settings">Settings</string>

@@ -241,20 +241,24 @@ public class myFetchService extends IntentService {
                     match_values.put(DatabaseContract.scores_table.MATCH_DAY,match_day);
 
                     //log spam
-
-                    //Log.v(LOG_TAG,match_id);
-                    //Log.v(LOG_TAG, mDate);
-                    //Log.v(LOG_TAG, mTime);
-                    //Log.v(LOG_TAG,Home);
-                    //Log.v(LOG_TAG,Away);
-                    //Log.v(LOG_TAG,Home_goals);
-                    //Log.v(LOG_TAG,Away_goals);
+//                    Log.v(LOG_TAG, "NEW MATCH");
+//                    Log.v(LOG_TAG,match_id);
+//                    Log.v(LOG_TAG, mDate);
+//                    Log.v(LOG_TAG, mTime);
+//                    Log.v(LOG_TAG,Home);
+//                    Log.v(LOG_TAG,Away);
+//                    Log.v(LOG_TAG,Home_goals);
+//                    Log.v(LOG_TAG,Away_goals);
 
                     values.add(match_values);
                 }
             }
+            int inserted_data = 0;
             ContentValues[] insert_data = new ContentValues[values.size()];
             values.toArray(insert_data);
+            inserted_data = mContext.getContentResolver().bulkInsert(
+                    DatabaseContract.BASE_CONTENT_URI,insert_data);
+
 
         }
         catch (JSONException e) {
